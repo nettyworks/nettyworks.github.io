@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Work Title</title>
+    <meta name="robots" content="noindex" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="body-work">
+    <div class="content-body">
+        <img src="assets/placeholder-image.jpg" alt="Placeholder image" />
+        <!-- More images can be added here as needed -->
+
+        <hr class="work-hr" />
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed
+            erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
+        </p>
+        <hr class="work-hr" />
+        <p>
+            <a href="#" id="reset-link">
+                << </a>
+        </p>
+    </div>
+    <script>
+        document.getElementById('reset-link').addEventListener('click', function (event) {
+            event.preventDefault();
+            parent.document.getElementById('content-frame').src = '';
+            parent.document.querySelector('.menu').style.display = 'block';
+        });
+    </script>
+</body>
+
+</html>

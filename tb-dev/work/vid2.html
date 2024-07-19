@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no" />
+    <title>Work Title</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/work-styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        .video-container {
+            width: 87%;
+            max-width: 800px;
+            margin: 0 auto 20px;
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content-body">
+        <div class="image-container video-container">
+            <video id="myVideo" controls preload="metadata" poster="/path/to/poster-image.jpg"
+                controlsList="nodownload nopictureinpicture noplaybackrate">
+                <source src="/work/assets/v2/XL Voyager.mp4" type="video/mp4" />
+                <source src="/path/to/your/video.webm" type="video/webm" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <p class="image-caption">Video Title/Text</p>
+
+        <hr class="work-hr" />
+        <p class="work-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui
+            mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor
+            neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim.
+        </p>
+        <hr class="work-hr" />
+        <div class="reset-link-container">
+            <a href="#" id="reset-link"> &lt;&lt; Back to menu</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('myVideo');
+            var resetLink = document.getElementById('reset-link');
+
+            // Remove unwanted control options
+            video.disablePictureInPicture = true;
+            video.controlsList.remove('download');
+
+            // Ensure video pauses when navigating away
+            window.addEventListener('beforeunload', function () {
+                if (!video.paused) {
+                    video.pause();
+                }
+            });
+
+            // Handle reset link
+            resetLink.addEventListener('click', function (event) {
+                event.preventDefault();
+                if (window.parent && window.parent.document) {
+                    var parentFrame = window.parent.document.getElementById('content-frame');
+                    var parentMenu = window.parent.document.querySelector('.menu');
+                    if (parentFrame) {
+                        parentFrame.src = '';
+                    }
+                    if (parentMenu) {
+                        parentMenu.style.display = 'block';
+                    }
+                }
+            });
+
+            // Optional: Log video events for debugging
+            ['loadedmetadata', 'play', 'pause', 'ended'].forEach(function (eventName) {
+                video.addEventListener(eventName, function () {
+                    console.log('Video event:', eventName);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
