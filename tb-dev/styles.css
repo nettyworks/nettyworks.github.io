@@ -1,103 +1,150 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 body {
-    font-family: 'EB Garamond', serif;
+  font-family: "EB Garamond", serif;
+  margin: 0;
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1;
+  box-sizing: border-box;
+}
+.header {
+  background-color: white;
+  padding: 20px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.2em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+}
+.header a {
+  text-decoration: none;
+  color: black;
+}
+.footer {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+}
+.menu,
+.info-panel {
+  font-size: 1.1em;
+  position: fixed;
+  top: 60px;
+  bottom: 60px;
+  width: 250px;
+  overflow-y: auto;
+  transition: transform 0.3s ease-out;
+}
+.menu {
+  left: 0;
+  background: linear-gradient(to right, white 95%, transparent);
+}
+.info-panel {
+  right: 0;
+  background: linear-gradient(to left, white 95%, transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.info-panel a {
+  text-decoration: none;
+  color: black;
+}
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.menu ul li {
+  padding: 6px 20px;
+}
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+}
+.menu .submenu {
+  padding-left: 20px;
+}
+.main-content {
+  margin: 0 250px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  transition: margin 0.3s ease-out;
+}
+#content-area {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.hamburger-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1002;
+}
+
+@media (max-width: 1024px) {
+  .menu {
+    transform: translateX(-100%);
+  }
+  .info-panel {
+    transform: translateX(100%);
+  }
+  .main-content {
     margin: 0;
-    padding: 0;
+  }
+  .hamburger-icon {
+    display: block;
+  }
+
+  /*
+  body.home .info-panel {
+    transform: translateX(0);
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    max-height: 40vh;
+    overflow-y: auto;
+    background: white;
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    line-height: 1;
-    box-sizing: border-box;
-}
-
-.header {
-    background-color: white;
+    justify-content: flex-start;
     padding: 20px;
-    text-align: left;
-    font-weight: bold;
-    font-size: 1.2em;
-    width: 100%;
     box-sizing: border-box;
-    z-index: 1001; /* Ensure it's above other elements */
-}
-
-.menu {
-    width: 250px;
-    height: calc(100vh - 60px);
+    z-index: 1000;
+  }
+  */
+  body.home .footer {
     position: fixed;
-    top: 60px;
+    bottom: 0;
     left: 0;
-    background-color: transparent;
-    overflow-y: auto;
-    transition: transform 0.3s ease-in-out;
-    z-index: 1000; /* Ensure it's above other elements */
+    right: 0;
+    z-index: 1001;
+  }
+  body.home .main-content {
+    margin-bottom: calc(40vh + 60px);
+  }
 }
-
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.menu.active {
+  transform: translateX(0);
 }
-
-.menu ul li {
-    padding: 6px 20px;
-}
-
-.menu ul li a {
-    text-decoration: none;
-    color: black;
-}
-
-#content-frame {
-    flex-grow: 1;
-    border: none;
-    margin-left: 250px;
-    width: calc(100% - 250px);
-    /* Height will be set dynamically in JavaScript */
-}
-
-.floating-frame {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background-color: transparent;
-    padding: 10px;
-    z-index: 1003;
-}
-
-.floating-frame a {
-    text-decoration: none;
-    color: black;
-    margin-right: 10px;
-}
-
-.hamburger-icon {
-    display: none;
-    cursor: pointer;
-    font-size: 24px;
-    position: fixed;
-    top: 20px;
-    right: 20px; /* Changed from left: 20px to right: 20px */
-    z-index: 1002;
-}
-
-
-@media (max-width: 768px) {
-    .menu {
-        transform: translateX(-100%);
-    }
-    
-    .menu.active {
-        transform: translateX(0);
-    }
-    
-    .hamburger-icon {
-        display: block;
-    }
-    
-    #content-frame {
-        margin-left: 0;
-        width: 100%;
-    }
+body.work .info-panel {
+  display: none;
 }

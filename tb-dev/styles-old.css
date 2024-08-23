@@ -1,0 +1,172 @@
+/*
+
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+body {
+    font-family: 'EB Garamond', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    line-height: 1;
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: white;
+    padding: 20px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1001; /* Ensure it's above other elements 
+}
+
+.footer {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1001;
+    position: sticky;
+    bottom: 0;
+}
+
+.menu {
+    width: 250px;
+    height: calc(100vh - 60px);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    background: linear-gradient(to right, white 95%, transparent);
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    padding: 6px 20px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu .submenu {
+    padding-left: 20px;
+}
+
+.menu .submenu li {
+    padding: 3px 0;
+}
+
+#content-frame {
+    flex-grow: 1;
+    border: none;
+    margin-left: 250px;
+    width: calc(100% - 250px - 220px);
+    height: calc(100vh - 60px - 60px);
+    overflow: auto; /* Add this to enable scrolling within the iframe */
+}
+
+.floating-frame {
+    position: fixed;
+    top: 60px; /* Account for header height */
+    right: 0;
+    height: calc(100vh - 60px - 60px); /* Adjust for header and footer */
+    width: 220px;
+    background-color: white;
+    z-index: 1003;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.floating-frame a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.hamburger-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Changed from left: 20px to right: 20px */
+    z-index: 1002;
+}
+
+.about-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: radial-gradient(circle, white 100%, transparent);
+    border-radius: 100%;
+    width: 300px;
+    height: 300x;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1004;
+}
+
+.about-bubble p {
+    margin: 0;
+    text-align: center;
+}
+
+.video-container {
+    width: 87%;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+
+@media (max-width: 1024px) {
+    .menu {
+        transform: translateX(-100%);
+    }
+    .floating-frame {
+        transform: translateX(100%);
+    }
+    #content-frame {
+        width: calc(100% - 250px); /* Only account for menu when floating frame is hidden */
+        }
+        }
+        /*
+
+@media (max-width: 768px) {
+    .menu.active {
+        transform: translateX(0);
+    }
+    .hamburger-icon {
+        display: block;
+    }
+    #content-frame {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+*/
